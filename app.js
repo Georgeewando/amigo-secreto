@@ -27,23 +27,18 @@ function exibirAmigos() {
         return;
     }
 
-    let i = 0;
-    while (i < amigos.length) {
-        const amigo = amigos[i];
-
+    amigos.forEach((amigo, index) => {
         const li = document.createElement('li');
         li.textContent = amigo;
 
         const removerBtn = document.createElement('button');
         removerBtn.textContent = 'Remover';
         removerBtn.className = 'button-remove';
-        removerBtn.onclick = () => removerAmigo(i);
+        removerBtn.onclick = () => removerAmigo(index); 
         li.appendChild(removerBtn);
 
         listaAmigos.appendChild(li);
-
-        i++;
-    }
+    });
 }
 
 // Função para remover um amigo
@@ -90,6 +85,7 @@ function sortearAmigo() {
         resultadoDiv.appendChild(li);
     });
 }
+
 
 
 document.addEventListener('DOMContentLoaded', exibirAmigos);
